@@ -1,0 +1,43 @@
+<?php 
+    $result = $block->getList()->getData();
+    $urlMedia = $block->getUrlMedia();
+?>
+
+<div class="owl-carousel owl-theme">
+    <?php foreach($result as $v) : ?>
+    <div class="item">
+        <h2>WHAT OUR CLIENTS ARE SAYING</h2>
+        <div class="testimonial">
+            <img src="<?php echo $urlMedia . "/custom_image" . $v["image"] ?>" alt="Image Client" class="image-reponsive">
+            <p><?php echo $v['message'] ?></p>
+            <h3><?php echo $v['name'] ?></h3>
+        </div>
+    </div>
+    <?php endforeach ?>
+   
+</div>
+
+<script>
+    (function  () {
+        require(["jquery","owlCarousel"],function($) {
+            $(document).ready(function(){
+                $('.owl-carousel').owlCarousel({
+                    loop:true,
+                    margin:10,
+                    nav:true,
+                    responsive:{
+                        0:{
+                            items:1
+                        },
+                        600:{
+                            items:1
+                        },
+                        1000:{
+                            items:1
+                        }
+                    }
+                });
+            });
+        });
+    })();
+</script>

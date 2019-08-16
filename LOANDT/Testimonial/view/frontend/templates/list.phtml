@@ -1,0 +1,44 @@
+<?php 
+    $customer_id = $block->getLoggedinCustomerId();
+    $testimonialAll = $block->getList()->getData();
+    $testimonial = [];
+
+    foreach($testimonialAll as $value){
+        if($value['customer_id'] == $customer_id){
+            $testimonial[] = $value;
+        }
+    }
+?>
+
+<table class="table table-bordered table-striped table-hover table-reponsive scroll">
+    <thead>
+    	<a style="color: #fff" href="<?php echo $block->getBaseUrl(); ?>testimonial/index/add" class="btn btn-primary btn-xs pull-right">Create New Testimonial</a>
+	  	<tr>
+		    <th>Id</th>
+		    <th>Name</th>
+		    <th>Designation</th>
+		    <th>Message</th>
+		    <th>Email</th>
+		    <th>Contact</th>
+		    <th>Status</th>
+		    <th>Image</th>
+		    <th col-span="2">Action</th>
+	    </tr>
+    </thead>
+    <?php
+    foreach ($testimonial as $v) {
+    	echo "<tr style=\"border: 1px solid #dddddd; text-align: left; padding: 8px;\">";
+    	echo "<td>".$v['testimonial_id']."</td>";
+    	echo "<td>".$v['name']."</td>";
+    	echo "<td>".$v['designation']."</td>";
+    	echo "<td>".$v['message']."</td>";
+    	echo "<td>".$v['email']."</td>";
+    	echo "<td>".$v['contact']."</td>";
+    	echo "<td>".$v['status']."</td>";
+        echo "<td><img src='". $block->getUrlMedia() . '/custom_image'.$v['image']."'></td>";
+        echo '<td><a href="' . $block->getUrl('testimonial/index/edit', ['testimonial_id' => $v['testimonial_id']]) . '">Edit</a></td>';
+    	echo '<td><a href="' . $block->getUrl('testimonial/index/delete', ['testimonial_id' => $v['testimonial_id']]) . '">Delete</a></td>';
+    	echo "</tr>";
+    }
+    ?>
+</table>

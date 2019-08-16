@@ -1,0 +1,106 @@
+<?php 
+    $customer_id = $block->getLoggedinCustomerId(); 
+    $data = $block->editTestimonial()->getData();
+    $urlMedia = $block->getUrlMedia();
+
+    if(!empty($data)) {
+        $title = 'Edit Testimonial';
+        $testimonial_id = $data['testimonial_id'];
+        $name = $data['name'];
+        $designation = $data['designation'];
+        $message = $data['message'];
+        $email = $data['email'];
+        $contact = $data['contact'];
+        $image = $data['image'];
+        $require = '';
+    }else{
+        $title = 'Add New Testimonial';
+        $testimonial_id = '';
+        $name = '';
+        $designation = '';
+        $message = '';
+        $email = '';
+        $contact = '';
+        $image = '';
+        $require = 'data-validate="{required:true}"';
+    }
+?>
+
+<?php if($customer_id != false) : ?>
+<div class="container">
+    <div class="row">
+        <div class="wp-testimonial">
+            <h2><?php echo $title ?></h2>
+            <form class="form-testimonial" 
+            action="<?= $block->escapeUrl($block->getUrl('testimonial/index/save')) ?>" 
+            method="post" 
+            enctype='multipart/form-data'
+            data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+            data-mage-init='{"validation":{}}'>
+                <div class="col-sm-6 column-left">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"></div>
+                            <input type="hidden" class="form-control" name="customer_id" id="exampleInputAmount" value="<?php echo $customer_id; ?>" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputAmount">Your Name</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"></div>
+                            <input type="text" class="form-control" name="name" id="exampleInputAmount" placeholder="Enter your name" data-validate="{required:true}" value="<?php echo $name ?>"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputAmount">Your Designation</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"></div>
+                            <input type="text" class="form-control" name="designation" id="exampleInputAmount" placeholder="Enter your designation" data-validate="{required:true}" value="<?php echo $designation ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputAmount">Your Message</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"></div>
+                            <input type="text" class="form-control" name="message" id="exampleInputAmount" placeholder="Enter your message" data-validate="{required:true}" value="<?php echo $message ?>">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 column-right">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"></div>
+                            <input type="hidden" class="form-control" name="testimonial_id" id="exampleInputAmount" value="<?php echo $testimonial_id; ?>" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputAmount">Your Email</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"></div>
+                            <input type="text" class="form-control" name="email" id="exampleInputAmount" placeholder="Enter your email" data-validate="{required:true, 'validate-email':true}" value="<?php echo $email ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputAmount">Your Contact</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"></div>
+                            <input type="text" class="form-control" name="contact" id="exampleInputAmount" placeholder="Enter your contact" data-validate="{required:true}" value="<?php echo $contact ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Your image</label>
+                        <input type="file" name="image" id="image" <?php echo $require ?>>
+                        <img style="width: 100px; height: 100px;" src="<?php echo $urlMedia . '/custom_image' . $image ?>" alt="">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-default">Submit Now</button>
+            </form>
+        </div>
+    </div>
+    
+</div>
+<?php else : ?>
+<div><h2>You need to <a href="<?php echo $this->getUrl('customer/account/login') ?>">sign in</a></h2></div>
+<?php endif; ?>
