@@ -5,12 +5,16 @@ class Delete extends \Magento\Framework\App\Action\Action
 {
     protected $_testimonialFactory;
 
+    protected $_customerSession;
+
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
-        \LOANDT\Testimonial\Model\TestimonialFactory $testimonialFactory
+        \LOANDT\Testimonial\Model\TestimonialFactory $testimonialFactory,
+        \Magento\Customer\Model\SessionFactory $customerSession
     )
     {
         $this->_testimonialFactory = $testimonialFactory;
+        $this->_customerSession = $customerSession->create();
         return parent::__construct($context);
     }
 
@@ -21,11 +25,21 @@ class Delete extends \Magento\Framework\App\Action\Action
         $this->_redirect('testimonial/index/listing');
     }
 
+    private function getLoggedinCustomerId() {
+        if ($this->_customerSession->isLoggedIn()) {
+            return $this->_customerSession->getId();
+        }
+        return false;
+    } 
+
     private function deleteStudent($testimonial_id)
     {
-        if(isset($testimonial_id)){
-            $testimonial = $this->_testimonialFactory->create();
-            $testimonial->load($testimonial_id)->delete();
-        }    
+        $checkCustomerLogin = $this->getLoggedinCustomerId();
+        if($checkCustomerLogin != false){
+            if(isset($testimonial_id)){
+                $testimonial = $this->_testimonialFactory->create();
+                $testimonial->load($testimonial_id)->delete();
+            }  
+        }         
     }
 }

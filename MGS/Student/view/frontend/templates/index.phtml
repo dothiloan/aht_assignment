@@ -1,0 +1,27 @@
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Status</th>
+        <th col-span=2>Action</th>
+    </tr>
+    <?php 
+        $result = $block->getAllData()->getData();
+        foreach($result as $value)
+        {
+            echo "<tr>";
+            echo "<td>" .$value['name']. "</td>";
+            echo "<td>" .$value['address']. "</td>";
+            echo "<td>" .$value['phone']. "</td>";
+            if($value['isMarried'] == 1){
+                echo "<td>Đã kết hôn</td>";
+            }else{
+                echo "<td>Chưa kết hôn</td>";
+            }
+            echo "<td><a href='". $block->getUrl('student/index/delete', ['student_id' => $value['student_id']]) ."'>Delete</a></td>";
+            echo "<td><a href='". $block->getUrl('student/index/edit', ['student_id' => $value['student_id']]) ."'>Edit</a></td>";
+            echo "</tr>";
+        }
+    ?>
+</table>

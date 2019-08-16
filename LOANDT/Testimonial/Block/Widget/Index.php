@@ -1,5 +1,5 @@
 <?php 
-namespace LOANDT\Testimonial\Block;
+namespace LOANDT\Testimonial\Block\Widget;
 
 use LOANDT\Testimonial\Model\ResourceModel\Testimonial\CollectionFactory as TestimonialCollectionFactory;
 

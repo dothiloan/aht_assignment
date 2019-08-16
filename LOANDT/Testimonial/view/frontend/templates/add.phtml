@@ -62,7 +62,8 @@
                         <label for="exampleInputAmount">Your Message</label>
                         <div class="input-group">
                             <div class="input-group-addon"></div>
-                            <input type="text" class="form-control" name="message" id="exampleInputAmount" placeholder="Enter your message" data-validate="{required:true}" value="<?php echo $message ?>">
+                            <textarea name="message" cols="30" rows="8" placeholder="Enter your message" data-validate="{required:true}"><?php echo $message ?></textarea>
+                            
                         </div>
                     </div>
                 </div>

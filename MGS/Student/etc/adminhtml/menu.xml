@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MGS_Student::student" title="Students" translate="student" module="MGS_Student" sortOrder="10" resource="MGS_Student::student"/>
+        <add id="MGS_Student::student_list" title="List Student" translate="title" module="MGS_Student" sortOrder="10" parent="MGS_Student::student" action="student/index/index" resource="MGS_Student::student_list"/>
+        <add id="MGS_Student::student_add" title="Add Student" translate="title" module="MGS_Student" sortOrder="20" parent="MGS_Student::student" action="student/index/add" resource="MGS_Student::student_add"/>
+    </menu>
+</config>

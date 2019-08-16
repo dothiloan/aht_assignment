@@ -1,0 +1,24 @@
+<?php 
+    $student = $block->editStudent();
+?>
+
+<form action="<?php echo $block->getUrl('student/index/save') ?>" method="post">
+             <input type="hidden" name="student_id" value="<?php echo $student->getStudentId(); ?>">
+    Name   : <input type="text" name="name" value="<?php echo $student->getName(); ?>">
+    Address: <input type="text" name="address" value="<?php echo $student->getAddress(); ?>">
+    Phone  : <input type="text" name="phone" value="<?php echo $student->getPhone(); ?>">
+    Status :
+    <?php if($student->getIsMarried() == 0): ?>
+    <select name="isMarried" id="">
+        <option value="0" selected="selected">Chua ket hon</option>
+        <option value="1">Da ket hon</option>
+    </select>
+    <?php else: ?>
+        <select name="isMarried" id="">
+            <option value="0" >Chua ket hon</option>
+            <option value="1" selected="selected">Da ket hon</option>
+        </select>
+    <?php endif; ?>
+    <input type="submit">
+    
+</form>

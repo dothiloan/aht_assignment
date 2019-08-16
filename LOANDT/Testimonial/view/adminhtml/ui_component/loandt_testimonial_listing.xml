@@ -85,7 +85,7 @@
                 <settings>
                     <callback>
                         <target>editSelected</target>
-                        <provider>cms_block_listing.cms_block_listing.cms_block_columns_editor</provider>
+                        <provider>loandt_testimonial_listing.loandt_testimonial_listing.loandt_testimonial_columns_editor</provider>
                     </callback>
                     <type>edit</type>
                     <label translate="true">Edit</label>
@@ -125,6 +125,13 @@
             <settings>
                 <filter>textRange</filter>
                 <label translate="true">ID</label>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <column name="customer_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Customer ID</label>
                 <sorting>asc</sorting>
             </settings>
         </column>
