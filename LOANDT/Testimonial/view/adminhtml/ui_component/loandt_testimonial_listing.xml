@@ -98,7 +98,7 @@
         <settings>
             <editorConfig>
                 <param name="clientConfig" xsi:type="array">
-                    <item name="saveUrl" xsi:type="url" path="cms/block/inlineEdit"/>
+                    <item name="saveUrl" xsi:type="url" path="testimonial/index/inlineEdit"/>
                     <item name="validateBeforeSave" xsi:type="boolean">false</item>
                 </param>
                 <param name="indexField" xsi:type="string">testimonial_id</param>
@@ -130,7 +130,7 @@
         </column>
         <column name="customer_id">
             <settings>
-                <filter>textRange</filter>
+                <filter>text</filter>
                 <label translate="true">Customer ID</label>
                 <sorting>asc</sorting>
             </settings>
@@ -165,8 +165,8 @@
                 <filter>text</filter>
                 <editor>
                     <validation>
-                        <rule name="required-entry" xsi:type="boolean">true</rule>
-                        <rule name="validate-xml-identifier" xsi:type="boolean">true</rule>
+                        <rule name="required-entry" xsi:type="boolean">false</rule>
+                        <rule name="validate-xml-identifier" xsi:type="boolean">false</rule>
                     </validation>
                     <editorType>text</editorType>
                 </editor>
@@ -178,8 +178,8 @@
                 <filter>text</filter>
                 <editor>
                     <validation>
-                        <rule name="required-entry" xsi:type="boolean">true</rule>
-                        <rule name="validate-xml-identifier" xsi:type="boolean">true</rule>
+                        <rule name="required-entry" xsi:type="boolean">false</rule>
+                        <rule name="validate-xml-identifier" xsi:type="boolean">false</rule>
                     </validation>
                     <editorType>text</editorType>
                 </editor>
@@ -191,8 +191,8 @@
                 <filter>text</filter>
                 <editor>
                     <validation>
-                        <rule name="required-entry" xsi:type="boolean">true</rule>
-                        <rule name="validate-xml-identifier" xsi:type="boolean">true</rule>
+                        <rule name="required-entry" xsi:type="boolean">false</rule>
+                        <rule name="validate-xml-identifier" xsi:type="boolean">false</rule>
                     </validation>
                     <editorType>text</editorType>
                 </editor>

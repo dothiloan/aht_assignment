@@ -33,42 +33,43 @@
 		}
 	}
 }
-.testimonial-index-index {
-	.owl-carousel {
-		background-color: #00a1ffc2;
-		text-align: center;
-		color: #fff;
+
+.owl-carousel {
+	background-color: #00a1ffc2;
+	text-align: center;
+	color: #fff;
+	position: relative;
+	padding: 30px 10px;
+	.image-reponsive {
+		width: 100px !important;
+		height: 100px !important;
+		border-radius: 50%;
+		display: inline-block;
+		margin: 0 auto;
+	}
+	.owl-dots {
+		display: none;
+	}
+	.owl-nav {
+		display: block;
+		width: 100%;
 		position: relative;
-		padding: 30px 10px;
-		.image-reponsive {
-			width: 100px !important;
-			height: 100px !important;
-			border-radius: 50%;
-			display: inline-block;
-		}
-		.owl-dots {
-			display: none;
-		}
-		.owl-nav {
-			display: block;
-			width: 100%;
-			position: relative;
-			button {
-				box-shadow: none;
-				span {
-					font-size: 30px;
-					padding: 0 15px;
-					border-radius: 50%;
-					border: 1px solid #fff;
-				}
+		button {
+			box-shadow: none;
+			span {
+				font-size: 30px;
+				padding: 0 15px;
+				border-radius: 50%;
+				border: 1px solid #fff;
 			}
 		}
 	}
-	.testimonial {
-		max-width: 1000px;
-    	margin: 0 auto;
-	}
 }
+.testimonial {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
 button.owl-prev {
 	position: fixed !important;
 	left: 60px !important;

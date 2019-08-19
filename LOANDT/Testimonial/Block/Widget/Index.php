@@ -1,13 +1,17 @@
 <?php 
 namespace LOANDT\Testimonial\Block\Widget;
 
+use Magento\Widget\Block\BlockInterface;
+
 use LOANDT\Testimonial\Model\ResourceModel\Testimonial\CollectionFactory as TestimonialCollectionFactory;
 
-class Index extends \Magento\Framework\View\Element\Template
+class Index extends \Magento\Framework\View\Element\Template implements BlockInterface
 {
     protected $_testimonialCollectionFactory;
 
     protected $_storeManager;
+
+    protected $_template = "widget/index.phtml";
 
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
